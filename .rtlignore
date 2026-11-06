@@ -1,0 +1,8 @@
+# فایل‌هایی که باید خام بمانند و بسته‌بندی نشوند
+# هر خط یک الگو؛ # آغاز توضیح است
+
+CLAUDE.md
+AGENTS.md
+GEMINI.md
+README.en.md
+prompt/*.md

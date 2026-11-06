@@ -1,0 +1,25 @@
+name: rtl-check
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: self-test the linter
+        run: python tools/rtl_lint.py --selftest
+
+      - name: run the test suite
+        run: python tests/test_rtl_presentation.py
+
+      - name: every human-facing markdown file is wrapped
+        run: python tools/rtl_guard.py . --check

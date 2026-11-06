@@ -32,6 +32,7 @@ Right-aligning the text (`text-align: right`) does not fix it. Only the base dir
 | `tools/rtl_wrap.py` | Wraps a document in the RTL container, checks compliance, strips invisible bidi marks |
 | `tools/rtl_lint.py` | Pre-flight check: missing wrapper, missing blank line, inline Latin inside Persian sentences |
 | `tools/rtl_view.py` | Renders a file (or the clipboard) to a self-contained RTL HTML page |
+| `tools/rtl_guard.py` | Scans a folder and wraps every Persian markdown file it finds |
 | `tools/rtl_paddle.html` | A two-pane page: paste messy text on the left, read it correctly on the right |
 | `docs/` | Why bidi breaks, editor setup per platform, troubleshooting, glossary |
 
@@ -56,6 +57,17 @@ Your message
 ```
 
 Opening tag on its own line, then a **blank line**, the body, a blank line, and the closing tag. The blank line matters: without it the body is treated as raw HTML and your markdown formatting is lost.
+
+## Markdown files inside harnesses
+
+The wrapper lives inside the file, so it travels with it. Any preview that renders markdown — AutoClaw, VS Code, GitHub, Obsidian — will honour it. To keep a folder compliant:
+
+```bash
+python tools/rtl_guard.py . --write
+python tools/rtl_guard.py . --watch
+```
+
+Instruction files such as `CLAUDE.md` go into `.rtlignore` so they stay raw. See [docs/harness-preview.md](docs/harness-preview.md).
 
 ## Use it inside an agent instruction file
 

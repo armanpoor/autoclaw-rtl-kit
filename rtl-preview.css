@@ -1,0 +1,44 @@
+/* پیش‌نمایش راست‌چین مارک‌داون در VS Code
+ *
+ * استفاده: در .vscode/settings.json
+ *   { "markdown.styles": ["./rtl-preview.css"] }
+ *
+ * متن فارسی راست‌به‌چپ می‌شود، کد و متن انگلیسی چپ‌به‌راست می‌ماند.
+ */
+
+body,
+p,
+li,
+td,
+th,
+blockquote,
+dd,
+dt {
+  direction: rtl;
+  unicode-bidi: plaintext;
+  text-align: right;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  direction: rtl;
+  unicode-bidi: isolate;
+  text-align: right;
+}
+
+pre,
+code,
+kbd,
+samp {
+  direction: ltr;
+  unicode-bidi: isolate;
+  text-align: left;
+}
+
+table {
+  direction: rtl;
+}
