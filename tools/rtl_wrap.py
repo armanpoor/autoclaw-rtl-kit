@@ -34,6 +34,7 @@ import sys
 from pathlib import Path
 
 OPEN_TAG = '<div dir="rtl">'
+OPEN_RE = re.compile(r'<div\s+dir="rtl"[^>]*>')
 CLOSE_TAG = "</div>"
 BOM = "\ufeff"
 MARKS_RE = re.compile("[\u200e\u200f\u2066-\u2069]")
@@ -42,8 +43,9 @@ MARKS_RE = re.compile("[\u200e\u200f\u2066-\u2069]")
 def unwrap(text: str) -> str:
     body = text.lstrip(BOM).lstrip("\n")
     stripped = body.lstrip()
-    if stripped.startswith(OPEN_TAG):
-        body = stripped[len(OPEN_TAG):]
+    match = OPEN_RE.match(stripped)
+    if match:
+        body = stripped[match.end():]
     body = body.rstrip()
     if body.endswith(CLOSE_TAG):
         body = body[: -len(CLOSE_TAG)]
@@ -57,7 +59,7 @@ def wrap(text: str) -> str:
 
 def is_wrapped(text: str) -> bool:
     cleaned = text.lstrip(BOM).strip()
-    return cleaned.startswith(OPEN_TAG) and cleaned.endswith(CLOSE_TAG)
+    return bool(OPEN_RE.match(cleaned)) and cleaned.endswith(CLOSE_TAG)
 
 
 def main() -> int:

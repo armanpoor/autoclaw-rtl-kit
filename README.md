@@ -1,10 +1,17 @@
-<div dir="rtl">
+<div dir="rtl" align="right">
 
 # کیت راست‌چین AutoClaw
 
-**نمایش درست فارسی در پیام‌های AutoClaw — بدون نصب، بدون تغییر تنظیمات.**
+**نمایش درست فارسی در پیام‌ها، مارک‌داون و ابزارهای خط فرمان.**
 
-Persian/Farsi RTL kit for AutoClaw: a drop-in rule file, two small scripts, and a viewer that make mixed Persian/Latin text read correctly.
+[![Stars](https://img.shields.io/github/stars/armanpoor/autoclaw-rtl-kit?style=flat-square&label=%E2%98%85)](https://github.com/armanpoor/autoclaw-rtl-kit/stargazers)
+[![License](https://img.shields.io/github/license/armanpoor/autoclaw-rtl-kit?style=flat-square)](LICENSE)
+[![Python](https://img.shields.io/badge/python-3.9%2B-3776AB?style=flat-square&logo=python&logoColor=white)](https://www.python.org/)
+[![RTL](https://img.shields.io/badge/RTL-%D8%B1%D8%A7%D8%B3%D8%AA%E2%80%8C%DA%86%DB%8C%D9%86-0f5c8c?style=flat-square)](docs/why-it-breaks.md)
+
+[فارسی](README.md) · [English](README.en.md)
+
+<img src="assets/social-preview.png" alt="کیت راست‌چین AutoClaw — مقایسهٔ متن به‌هم‌ریخته و متن درست" width="100%">
 
 ---
 
@@ -21,13 +28,30 @@ Persian/Farsi RTL kit for AutoClaw: a drop-in rule file, two small scripts, and 
 | خط دوم ادامهٔ جمله را از سمت چپ شروع می‌کند | شکست خط در پایهٔ چپ‌به‌راست انجام شده است |
 | فهرست گلوله‌ای در سمت چپ ظاهر می‌شود | نشانگر فهرست تابع جهت بلوک است، نه جهت متن |
 
+## این کیت برای چه کسی است
+
+- کسانی که با دستیارهای هوش مصنوعی فارسی می‌نویسند و پیام‌ها به‌هم می‌ریزد.
+- نگه‌دارندگان مخزن که می‌خواهند README فارسی‌شان در گیت‌هاب و ادیتور درست دیده شود.
+- تیم‌هایی که خروجی فارسی را به ورد، پی‌دی‌اف یا مستند تبدیل می‌کنند.
+- هر کسی که با متن دوجهته (فارسی، عربی، عبری) و رشته‌های لاتین سر و کار دارد.
+
+## شروع سریع
+
+```bash
+git clone https://github.com/armanpoor/autoclaw-rtl-kit.git
+cd autoclaw-rtl-kit
+python tools/rtl_lint.py --selftest
+```
+
+بدون نصب هیچ بسته‌ای. پایتون ۳.۹ به بالا کافی است.
+
 ## راه‌حل
 
 سه لایه، از سبک‌ترین به کامل‌ترین:
 
 ### ۱) قاعدهٔ بدون نصب
 
-هر پیام را در یک بستهٔ جهت‌دار بگذارید. همین یک خط، مشکل را در بیشتر رندرکننده‌ها حل می‌کند:
+هر پیام را در یک بستهٔ جهت‌دار بگذارید. همین یک تگ، مشکل را در بیشتر رندرکننده‌ها حل می‌کند:
 
 ```markdown
 <div dir="rtl">
@@ -39,37 +63,25 @@ Persian/Farsi RTL kit for AutoClaw: a drop-in rule file, two small scripts, and 
 
 تگ آغاز در سطر اول، یک سطر خالی، بدنه، یک سطر خالی، تگ پایانی. سطر خالی اجباری است: بدون آن، بدنه به‌عنوان متن خام نمایش داده می‌شود و قالب‌بندی مارک‌داون از بین می‌رود.
 
-قاعدهٔ آماده برای فایل دستورهای عامل، در [prompt/autoclaw-rtl-law.md](prompt/autoclaw-rtl-law.md).
+قاعدهٔ آماده برای فایل دستورهای عامل: [prompt/autoclaw-rtl-law.md](prompt/autoclaw-rtl-law.md).
 
 ### ۲) ابزار خط فرمان
 
 ```bash
 python tools/rtl_wrap.py notes.md --in-place   # پیچیدن فایل در بستهٔ راست‌چین
 python tools/rtl_wrap.py notes.md --check      # بررسی انطباق (کد خروج ۰ یا ۱)
+python tools/rtl_lint.py draft.md              # بازرسی پیش از ارسال پیام
 python tools/rtl_view.py notes.md              # تبدیل به HTML و باز کردن در مرورگر
 python tools/rtl_view.py --clipboard           # همان کار روی محتوای کلیپ‌بورد
-python tools/rtl_lint.py draft.md              # بازرسی پیش از ارسال پیام
 ```
-
-هر سه بدون وابستگی خارجی کار می‌کنند؛ فقط پایتون ۳.۹ به بالا لازم است.
 
 ### ۳) لوح راست‌چین
 
 فایل [tools/rtl_paddle.html](tools/rtl_paddle.html) را باز کنید: متن را در ستون چپ بچسبانید، ستون راست همان لحظه درست نشان می‌دهد. برای وقتی است که متنِ به‌هم‌ریخته را از جایی کپی کرده‌اید و فقط می‌خواهید بخوانیدش.
 
-## نصب
-
-```bash
-git clone https://github.com/armanpoor/autoclaw-rtl-kit.git
-cd autoclaw-rtl-kit
-python tools/rtl_lint.py --selftest
-```
-
-هیچ بسته‌ای نصب نمی‌شود. تنها فایلی که ابزارها می‌نویسند، همان خروجی است که خودتان نامش را می‌دهید.
-
 ## استفاده در فایل دستورهای عامل
 
-اگر AutoClaw را با یک فایل دستور مثل `CLAUDE.md` یا `AGENTS.md` راه می‌اندازید، قطعهٔ زیر را به آن اضافه کنید تا عامل از این پس همهٔ پاسخ‌ها را درست بفرستد:
+اگر AutoClaw یا هر عامل دیگری را با فایل دستور مثل `CLAUDE.md` یا `AGENTS.md` راه می‌اندازید، قطعهٔ زیر را به آن اضافه کنید:
 
 ```markdown
 ## قانون نمایش راست‌چین
@@ -79,7 +91,8 @@ python tools/rtl_lint.py --selftest
 هر رشتهٔ لاتین درون‌خطی در بلوک کد یا داخل `<span dir="ltr">` ایزوله می‌شود.
 ```
 
-نسخهٔ کامل با توضیح هفت زیربند: [prompt/autoclaw-rtl-law.md](prompt/autoclaw-rtl-law.md).
+نسخهٔ کامل با هفت زیربند: [prompt/autoclaw-rtl-law.md](prompt/autoclaw-rtl-law.md).
+پرامپت کامل با لحن و قالب پاسخ: [prompt/system-prompt.md](prompt/system-prompt.md).
 
 ## چه محیط‌هایی درست می‌شوند
 
@@ -94,9 +107,32 @@ python tools/rtl_lint.py --selftest
 
 جزئیات راه‌اندازی هر محیط: [docs/editor-setup.md](docs/editor-setup.md).
 
+## پرسش‌های متداول
+
+**چطور متن فارسی را در AutoClaw راست‌چین کنم؟**
+هر پاسخ را داخل `<div dir="rtl">` بگذارید، با یک سطر خالی بعد از تگ آغاز. اگر فایل دستور عامل دارید، همان قاعده را یک‌بار در آن بنویسید تا همیشه اعمال شود.
+
+**چرا پرانتزها در متن فارسی برعکس می‌شوند؟**
+پرانتز نویسهٔ خنثی است. تا وقتی پایهٔ جهت پاراگراف راست نشود، مرورگر جای باز و بستهٔ آن را از پایهٔ چپ‌به‌راست می‌گیرد.
+
+**آیا RLM کافی نیست؟**
+نه. RLM تنها در ابتدای پاراگراف اثر دارد و در شکست خط از میدان خارج می‌شود. برای رشته‌های درون‌خطی، جفت RLI و PDI یا ایزولهٔ CSS درست‌تر است.
+
+**کد و آدرس هگز را چطور بنویسم؟**
+در بلوک کد جدا یا داخل کد درون‌خطی. بلوک کد به‌طور طبیعی چپ‌به‌راست است و ترتیبش به‌هم نمی‌ریزد.
+
+**آیا روی مک و لینوکس هم کار می‌کند؟**
+بله. ابزارها فقط پایتون استاندارد می‌خواهند. تنها بخش وابسته به ویندوز، خواندن کلیپ‌بورد در حالت `--clipboard` است.
+
+**چرا ترمینال ویندوز درست نشان نمی‌دهد؟**
+پشتیبانی دوجهته در آن هنوز پیاده نشده و درخواستش در فهرست کارهای آینده است. خروجی را به فایل بدهید و در مرورگر باز کنید.
+
+**آیا فایل‌های من تغییر می‌کنند؟**
+فقط اگر `--in-place` بدهید. در حالت عادی نتیجه در خروجی استاندارد چاپ می‌شود.
+
 ## مستندات
 
-- [چرا متن به‌هم می‌ریزد](docs/why-it-breaks.md) — توضیح الگوریتم دوجهته با ارجاع به استاندارد
+- [چرا متن به‌هم می‌ریزد](docs/why-it-breaks.md) — الگوریتم دوجهته با ارجاع به استاندارد
 - [راه‌اندازی ادیتور و محیط‌ها](docs/editor-setup.md)
 - [عیب‌یابی](docs/troubleshooting.md)
 - [واژه‌نامه](docs/glossary.md)
@@ -109,6 +145,18 @@ python tests/test_rtl_presentation.py
 ```
 
 ده بررسی: قالب بسته، خودتوانی، بازگشت‌پذیری، سالم‌ماندن مارک‌داون، بازرسی متن آزاد، و وجود فایل‌های پرامپت.
+
+## مشارکت
+
+Issue و Pull Request خوش‌آمد است. پیش از ارسال، `python tools/rtl_lint.py` را روی فایل‌های تغییر‌یافته اجرا کنید. راهنمای کامل: [CONTRIBUTING.md](CONTRIBUTING.md).
+
+اگر این کیت به کارتان آمد، یک ستاره بدهید تا دیگرانی که همین مشکل را دارند پیدایش کنند.
+
+## کلیدواژه‌ها
+
+فارسی: راست‌چین، متن فارسی، به‌هم‌ریختن متن، پرانتز برعکس، ترمینال ویندوز، مارک‌داون فارسی، دستیار فارسی، ریمپ ایسیو.
+
+انگلیسی: RTL, right-to-left, Persian, Farsi, Arabic script, bidirectional text, Unicode bidi, UAX #9, markdown RTL, chat UI, AI agent prompts, Windows Terminal, VS Code, Obsidian.
 
 ## مجوز
 

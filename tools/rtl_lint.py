@@ -28,6 +28,7 @@ import sys
 from pathlib import Path
 
 OPEN_TAG = '<div dir="rtl">'
+OPEN_RE = re.compile(r'<div\s+dir="rtl"[^>]*>')
 CLOSE_TAG = "</div>"
 
 PERSIAN_RE = re.compile(r"[\u0600-\u06FF]")
@@ -56,7 +57,7 @@ def analyse(text: str) -> dict:
 
     body_last = len(lines) - 1 - body_last
 
-    if stripped[body_first] != OPEN_TAG:
+    if not OPEN_RE.fullmatch(stripped[body_first]):
         errors.append("با بستهٔ جهت‌دار آغاز نمی‌شود")
     elif body_first + 1 < len(lines) and stripped[body_first + 1] != "":
         errors.append("بعد از تگ آغاز سطر خالی نیست؛ مارک‌داون خام می‌ماند")
@@ -67,9 +68,10 @@ def analyse(text: str) -> dict:
         errors.append("قبل از تگ پایانی سطر خالی نیست")
 
     # شمارش تگ‌ها
-    if text.count(OPEN_TAG) != text.count(CLOSE_TAG):
+    opened = len(OPEN_RE.findall(text))
+    if opened != text.count(CLOSE_TAG):
         errors.append(
-            f"تعداد تگ آغاز و پایان برابر نیست ({text.count(OPEN_TAG)} در برابر {text.count(CLOSE_TAG)})"
+            f"تعداد تگ آغاز و پایان برابر نیست ({opened} در برابر {text.count(CLOSE_TAG)})"
         )
 
     inline_hits: list[tuple[int, str]] = []

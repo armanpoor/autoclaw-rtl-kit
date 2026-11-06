@@ -1,0 +1,8 @@
+blank_issues_enabled: true
+contact_links:
+  - name: پرسش و گفت‌وگو
+    url: https://github.com/armanpoor/autoclaw-rtl-kit/discussions
+    about: برای پرسش، ایده یا نمایش تجربه‌تان از بحث‌ها استفاده کنید.
+  - name: مستندات
+    url: https://github.com/armanpoor/autoclaw-rtl-kit#readme
+    about: شاید پاسخ در README و پوشهٔ docs باشد.

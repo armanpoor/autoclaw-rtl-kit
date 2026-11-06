@@ -1,0 +1,25 @@
+name: پیشنهاد قابلیت
+description: ایده یا بهبود
+title: "[feat]: "
+labels: ["enhancement"]
+body:
+  - type: textarea
+    id: problem
+    attributes:
+      label: چه مشکلی را حل می‌کند
+      description: موقعیتی که امروز به‌سختی انجام می‌شود
+    validations:
+      required: true
+  - type: textarea
+    id: proposal
+    attributes:
+      label: پیشنهاد شما
+    validations:
+      required: false
+  - type: textarea
+    id: alternatives
+    attributes:
+      label: گزینه‌های دیگر
+      description: راه‌حل‌هایی که امتحان کردید یا رد کردید
+    validations:
+      required: false
