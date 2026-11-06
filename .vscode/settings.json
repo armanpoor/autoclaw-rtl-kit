@@ -1,0 +1,7 @@
+{
+  "markdown.styles": ["./rtl-preview.css"],
+  "markdown.preview.breaks": false,
+  "markdown.preview.typographer": false,
+  "files.encoding": "utf8",
+  "files.eol": "\n"
+}

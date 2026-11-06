@@ -43,6 +43,7 @@ PERSIAN_RE = re.compile(r"[\u0600-\u06FF]")
 SKIP_DIRS = {
     ".git", ".hg", ".svn", "node_modules", ".venv", "venv", "__pycache__",
     "build", "dist", ".idea", ".vscode", ".mypy_cache", ".pytest_cache",
+    ".zwork", ".claude", "build_logs", "site-packages",
 }
 DEFAULT_IGNORES = ["CLAUDE.md", "AGENTS.md", "GEMINI.md", "README.en.md"]
 MIN_PERSIAN_CHARS = 24

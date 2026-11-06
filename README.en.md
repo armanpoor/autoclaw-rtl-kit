@@ -3,6 +3,7 @@
 **Persian (Farsi) text that reads correctly in chat UIs, markdown and the terminal.**
 
 [![Stars](https://img.shields.io/github/stars/armanpoor/autoclaw-rtl-kit?style=flat-square&label=%E2%98%85)](https://github.com/armanpoor/autoclaw-rtl-kit/stargazers)
+[![rtl-check](https://github.com/armanpoor/autoclaw-rtl-kit/actions/workflows/rtl-check.yml/badge.svg)](https://github.com/armanpoor/autoclaw-rtl-kit/actions/workflows/rtl-check.yml)
 [![License](https://img.shields.io/github/license/armanpoor/autoclaw-rtl-kit?style=flat-square)](LICENSE)
 [![Python](https://img.shields.io/badge/python-3.9%2B-3776AB?style=flat-square&logo=python&logoColor=white)](https://www.python.org/)
 

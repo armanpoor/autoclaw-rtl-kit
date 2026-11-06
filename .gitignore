@@ -11,5 +11,4 @@ build/
 # سیستم‌عامل و ادیتور
 .DS_Store
 Thumbs.db
-.vscode/
 .idea/

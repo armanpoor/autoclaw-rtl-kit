@@ -5,6 +5,7 @@
 **نمایش درست فارسی در پیام‌ها، مارک‌داون و ابزارهای خط فرمان.**
 
 [![Stars](https://img.shields.io/github/stars/armanpoor/autoclaw-rtl-kit?style=flat-square&label=%E2%98%85)](https://github.com/armanpoor/autoclaw-rtl-kit/stargazers)
+[![rtl-check](https://github.com/armanpoor/autoclaw-rtl-kit/actions/workflows/rtl-check.yml/badge.svg)](https://github.com/armanpoor/autoclaw-rtl-kit/actions/workflows/rtl-check.yml)
 [![License](https://img.shields.io/github/license/armanpoor/autoclaw-rtl-kit?style=flat-square)](LICENSE)
 [![Python](https://img.shields.io/badge/python-3.9%2B-3776AB?style=flat-square&logo=python&logoColor=white)](https://www.python.org/)
 [![RTL](https://img.shields.io/badge/RTL-%D8%B1%D8%A7%D8%B3%D8%AA%E2%80%8C%DA%86%DB%8C%D9%86-0f5c8c?style=flat-square)](docs/why-it-breaks.md)
