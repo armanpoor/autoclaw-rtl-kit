@@ -13,6 +13,7 @@
 
 <img src="assets/social-preview.png" alt="کیت راست‌چین AutoClaw — مقایسهٔ متن به‌هم‌ریخته و متن درست" width="100%">
 
+**دموی زنده:** [https://armanpoor.github.io/autoclaw-rtl-kit/](https://armanpoor.github.io/autoclaw-rtl-kit/) — متن فارسی را بچسبانید و درست ببینید.
 ---
 
 ## مشکل چیست؟

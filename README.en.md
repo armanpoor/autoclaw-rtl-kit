@@ -10,6 +10,7 @@
 
 <img src="assets/social-preview.png" alt="AutoClaw RTL Kit — scrambled versus correctly shaped Persian text" width="100%">
 
+**Live demo:** [https://armanpoor.github.io/autoclaw-rtl-kit/](https://armanpoor.github.io/autoclaw-rtl-kit/) — paste Persian text and see it fixed.
 ---
 
 ## The problem
