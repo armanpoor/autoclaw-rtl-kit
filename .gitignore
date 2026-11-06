@@ -1,0 +1,15 @@
+# Python
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+
+# خروجی ابزارها
+*.rtl.html
+build/
+
+# سیستم‌عامل و ادیتور
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
